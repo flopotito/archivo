@@ -9,7 +9,7 @@
 
 body{
 background:black;
-margin:0;
+margin:fixed;
 font-family:monospace;
 }
 
@@ -48,7 +48,7 @@ margin:15px 0;
 /* IMAGEN */
 
 .imagen{
-width:60%;
+width:100%;
 }
 
 .imagen img{
@@ -57,10 +57,33 @@ height:100%;
 object-fit:cover;
 }
 
+.navbar {
+  background-color: #333;
+  overflow: hidden;
+}
+
+.navbar a {
+  float: right;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  background-color: red;
+}
+
 </style>
 </head>
 
 <body>
+
+<div class="navbar">
+  <a href="index.html">Inicio</a>
+  <a href="obras.html">Proyectos</a>
+  <a href="contacto">Contacto</a>
+</div>
 
 <div class="contenedor">
 
@@ -76,7 +99,7 @@ object-fit:cover;
 
 <div class="imagen">
 
-<img src="contacto.jpg">
+<img src="imgcontacto.jpg">
 
 </div>
 
