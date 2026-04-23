@@ -5,80 +5,125 @@
 <meta charset="UTF-8">
 <title>Obras - Florencia Umaña</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
+
 <style>
 
 body{
-    font-family: monospace;
-
-    background-image: url("fondo2.jpg");
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-    
-    margin:0;
+font-family: 'Libre Baskerville', serif;
+margin:0;
+background-image: url("fondo.jpg");
+background-size: cover;
+background-repeat: no-repeat;
+background-position: center;
 }
 
-.volver{
-    display:inline-block;
-    margin:20px;
-    padding:10px 15px;
-    background:white;
-    color:black;
-    text-decoration:none;
-    border-radius:8px;
+/* capa oscura */
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.4);
+z-index:-1;
 }
 
+/* CONTENEDOR GENERAL */
+.contenedor{
+position:relative;
+width:100%;
+min-height:100vh;
+}
+
+/* HEADER IZQUIERDA */
+.header{
+position:absolute;
+top:50px;
+left:60px;
+}
+
+h1{
+font-size:28px;
+margin:0;
+color:white;
+font-weight:normal;
+letter-spacing:1px;
+}
+
+/* MENÚ DERECHA */
+.menu{
+position:absolute;
+top:50px;
+right:60px;
+display:flex;
+gap:25px;
+}
+
+.seccion a{
+text-decoration:none;
+color:white;
+font-size:16px;
+opacity:0.8;
+transition:opacity 0.3s;
+}
+
+.seccion a:hover{
+opacity:0.4;
+}
+
+/* GALERÍA */
 .galeria{
-    width:90%;
-    max-width:1500px;
-    margin:auto;
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-    gap:20px;
+width:90%;
+max-width:1500px;
+margin:140px auto 40px auto;
+display:grid;
+grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+gap:20px;
 }
 
 .galeria img{
-    width:100%;
-    cursor:pointer;
-    border-radius:6px;
+width:100%;
+cursor:pointer;
+border-radius:6px;
 }
 
-/* ventana grande */
+/* MODAL */
 
 .modal{
-    display:none;
-    position:fixed;
-    z-index:10;
-    padding-top:60px;
-    left:0;
-    top:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.9);
-    text-align:center;
+display:none;
+position:fixed;
+z-index:10;
+padding-top:60px;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.9);
+text-align:center;
 }
 
 .modal img{
-    max-width:80%;
-    max-height:70vh;
+max-width:80%;
+max-height:70vh;
 }
 
 .descripcion{
-    color:white;
-    margin-top:20px;
-    max-width:600px;
-    margin-left:auto;
-    margin-right:auto;
+color:white;
+margin-top:20px;
+max-width:600px;
+margin-left:auto;
+margin-right:auto;
 }
 
 .cerrar{
-    position:absolute;
-    top:20px;
-    right:40px;
-    color:white;
-    font-size:40px;
-    cursor:pointer;
+position:absolute;
+top:20px;
+right:40px;
+color:white;
+font-size:40px;
+cursor:pointer;
 }
 
 </style>
@@ -86,34 +131,42 @@ body{
 
 <body>
 
-<a href="index.html" class="volver">← Volver</a>
+<div class="contenedor">
 
+<!-- HEADER -->
+<div class="header">
+<h1>Florencia Umaña</h1>
+</div>
+
+<!-- MENÚ -->
+<div class="menu">
+<div class="seccion">
+<a href="obras.html">Obras</a>
+</div>
+<div class="seccion">
+<a href="contacto.html">Contacto</a>
+</div>
+</div>
+
+<!-- GALERÍA -->
 <div class="galeria">
 
 <img src="img1.jpg" onclick="abrir(this,'Fragmentos','El pie, soporte de movimiento...')">
-
 <img src="img2.jpg" onclick="abrir(this,'Diapositivas','Imágenes creadas con maquillaje en soporte transparente.')">
-
 <img src="img3.jpg" onclick="abrir(this,'Tomando 11','Tazas hechas en base de servilleta para representar fragilidad.')">
-
 <img src="img4.jpg" onclick="abrir(this,'Obra 4','Descripción de la obra.')">
-
 <img src="img5.jpg" onclick="abrir(this,'Obra 5','Descripción de la obra.')">
-
 <img src="img6.jpg" onclick="abrir(this,'Obra 6','Descripción de la obra.')">
-
 <img src="img7.jpg" onclick="abrir(this,'Obra 7','Descripción de la obra.')">
-
 <img src="img8.jpg" onclick="abrir(this,'Obra 8','Descripción de la obra.')">
-
 <img src="img9.jpg" onclick="abrir(this,'Obra 9','Descripción de la obra.')">
-
 <img src="img10.jpg" onclick="abrir(this,'Obra 10','Descripción de la obra.')">
 
 </div>
 
+</div>
 
-<!-- ventana grande -->
+<!-- MODAL -->
 
 <div id="modal" class="modal">
 
@@ -131,21 +184,14 @@ body{
 <script>
 
 function abrir(img,titulo,descripcion){
-
 document.getElementById("modal").style.display="block";
-
 document.getElementById("imgGrande").src=img.src;
-
 document.getElementById("titulo").innerText=titulo;
-
 document.getElementById("texto").innerText=descripcion;
-
 }
 
 function cerrar(){
-
 document.getElementById("modal").style.display="none";
-
 }
 
 </script>
